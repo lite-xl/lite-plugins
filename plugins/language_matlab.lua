@@ -1,0 +1,41 @@
+local syntax = require "core.syntax"
+
+syntax.add {
+  files = "%.m$",
+  comment = "%%",
+  patterns = {
+    { pattern = "%%.-\n",               type = "comment"  },
+    { pattern = "[%a_][%w_]*",          type = "symbol"   },
+    { pattern = "[%a_][%w_]*%.?'",      type = "symbol"   },
+    { pattern = "%)%.?'",               type = "symbol"   },
+    { pattern = "'[^'\n]*'",            type = "string"   },
+    { pattern = "\"[^\"\n]*\"",         type = "string"   },
+    { pattern = "-?0x%x+",              type = "number"   },
+    { pattern = "-?%d+[%d%.eE]*f?",     type = "number"   },
+    { pattern = "-?%.?%d+f?",           type = "number"   },
+    { pattern = "[%+%-=/%*%\\%^&|]",    type = "operator" },
+    { pattern = "%.[%*%/%\\%^']",       type = "operator" },
+    { pattern = "%.%.%.",               type = "keyword2" },
+  },
+  symbols = {
+    ["if"]         = "keyword",
+    ["then"]       = "keyword",
+    ["else"]       = "keyword",
+    ["elseif"]     = "keyword",
+    ["end"]        = "keyword",
+    ["for"]        = "keyword",
+    ["switch"]     = "keyword",
+    ["case"]       = "keyword",
+    ["while"]      = "keyword",
+    ["try"]        = "keyword",
+    ["catch"]      = "keyword",
+    ["break"]      = "keyword",
+    ["continue"]   = "keyword",
+    ["return"]     = "keyword",
+    ["pause"]      = "keyword2",
+    ["parfor"]     = "keyword2",
+    ["true"]       = "literal",
+    ["false"]      = "literal",
+  },
+}
+
