@@ -12,7 +12,7 @@ syntax.add {
   patterns = {
     { pattern = "//.-\n",               type = "comment"  },
     { pattern = { "/%*", "%*/" },       type = "comment"  },
-    { pattern = { "#", "[^\\]\n" },     type = "comment"  },
+    { pattern = "#%w+",                 type = "keyword"  },
     { pattern = { '"', '"', '\\' },     type = "string"   },
     { pattern = { "'", "'", '\\' },     type = "string"   },
     { pattern = "-?0x%x+",              type = "number"   },
