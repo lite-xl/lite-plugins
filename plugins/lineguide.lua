@@ -14,7 +14,6 @@ function DocView:draw_caret(x, y)
 end
 
 function DocView:draw(...)
-
   draw(self, ...)
 
   local ns = ("n"):rep(config.line_limit)
