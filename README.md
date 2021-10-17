@@ -19,6 +19,7 @@ Plugin | Description
 *[`bigclock`](plugins/bigclock.lua?raw=1)* | Shows the current time and date in a view with large text *([screenshot](https://user-images.githubusercontent.com/3920290/82752891-3318df00-9db9-11ea-803f-261d80d5cf53.png))*
 [`black`](https://git.sr.ht/~tmpod/black-lite)* | Integrates the [black](https://github.com/psf/black) Python formatter with lite
 [`bracketmatch`](plugins/bracketmatch.lua?raw=1) | Underlines matching pair for bracket under the caret *([screenshot](https://user-images.githubusercontent.com/3920290/80132745-0c863f00-8594-11ea-8875-c455c6fd7eae.png))*
+[`build`](plugins/build.lua?raw=1) | Provides an easy interface to work with a makefile, or other build tool. Shows clickable build messages that allow you to easily jump to errors in a file.
 [`centerdoc`](plugins/centerdoc.lua?raw=1) | Centers document's content on the screen *([screenshot](https://user-images.githubusercontent.com/3920290/82127896-bf6e4500-97ae-11ea-97fc-ba9a552bc9a4.png))*
 ~~[`closeconfirmx`](plugins/closeconfirmx.lua?raw=1)~~ | Replaced by NagView dialog ~~Replaces a system close confirmation dialog with a command view, like for individual files *([screenshot](https://user-images.githubusercontent.com/1689801/107596774-afa76280-6c53-11eb-80ab-22e73058c097.png))*~~
 [`colorpreview`](plugins/colorpreview.lua?raw=1) | Underlays color values (eg. `#ff00ff` or `rgb(255, 0, 255)`) with their resultant color. *([screenshot](https://user-images.githubusercontent.com/3920290/80743752-731bd780-8b15-11ea-97d3-847db927c5dc.png))*
