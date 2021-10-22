@@ -147,8 +147,8 @@ end
 
 local rootview_open_doc = RootView.open_doc
 function RootView:open_doc(doc)
-  local str = read_doc(doc, 128 * 4) -- max bytes for 128 codepoints
-  if validate_utf8(str, 128) then
+  -- 128 * 4 == max number of bytes for 128 codepoints
+  if not doc.filename or validate_utf8(read_doc(doc, 128 * 4), 128) then
     return rootview_open_doc(self, doc)
   else
     local node = self:get_active_node_default()
