@@ -146,6 +146,7 @@ local function validate_doc(doc)
   return validate_utf8(str, 128)
 end
 
+
 local rootview_open_doc = RootView.open_doc
 function RootView:open_doc(doc)
   -- 128 * 4 == max number of bytes for 128 codepoints
