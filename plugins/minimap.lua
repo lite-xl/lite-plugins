@@ -1,4 +1,4 @@
--- mod-version:2
+-- mod-version:3 --lite-xl 2.1
 local command = require "core.command"
 local common = require "core.common"
 local config = require "core.config"
@@ -7,7 +7,7 @@ local DocView = require "core.docview"
 local Object = require "core.object"
 
 -- General plugin settings
-config.plugins.minimap = {
+config.plugins.minimap = common.merge({
 	enabled = true,
 	width = 100,
 	instant_scroll = false,
@@ -38,7 +38,7 @@ config.plugins.minimap = {
 	-- config.plugins.minimap.highlight_align = 'right'
 	-- config.plugins.minimap.highlight_width = 5
 	-- config.plugins.minimap.gutter_width = 0
-}
+}, config.plugins.minimap)
 
 -- Configure size for rendering each char in the minimap
 local char_height = 1 * SCALE * config.plugins.minimap.scale

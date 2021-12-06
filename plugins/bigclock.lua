@@ -1,4 +1,4 @@
--- mod-version:2 -- lite-xl 2.0
+-- mod-version:3 --lite-xl 2.1
 local core = require "core"
 local style = require "core.style"
 local command = require "core.command"
@@ -7,11 +7,11 @@ local config = require "core.config"
 local View = require "core.view"
 
 
-config.plugins.bigclock = {
+config.plugins.bigclock = common.merge({
   time_format = "%H:%M:%S",
   date_format = "%A, %d %B %Y",
   scale = 1
-}
+}, config.plugins.bigclock)
 
 
 local ClockView = View:extend()

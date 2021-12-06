@@ -1,4 +1,4 @@
--- mod-version:2 -- lite-xl 2.0
+-- mod-version:3 --lite-xl 2.1
 local style = require "core.style"
 local config = require "core.config"
 local DocView = require "core.docview"
@@ -39,10 +39,9 @@ function DocView:draw_line_text(idx, x, y)
   local h = self:get_line_height()
   local sspaces = ""
   local font = self:get_font()
-  local ss = font:subpixel_scale()
   for _ = 0, spaces - 1, config.indent_size do
     local color = style.guide or style.selection
-    local sw = font:get_width_subpixel(sspaces) / ss
+    local sw = font:get_width(sspaces)
     renderer.draw_rect(x + sw, y, w, h, color)
     sspaces = sspaces .. (' '):rep(config.indent_size)
   end

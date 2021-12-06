@@ -1,4 +1,4 @@
--- mod-version:2 -- lite-xl 2.0
+-- mod-version:3 --lite-xl 2.1
 local core = require "core"
 local style = require "core.style"
 local config = require "core.config"
@@ -7,14 +7,10 @@ local common = require "core.common"
 local DocView = require "core.docview"
 local Doc = require "core.doc"
 
-config.plugins.spellcheck = {}
-config.plugins.spellcheck.files = { "%.txt$", "%.md$", "%.markdown$" }
-if PLATFORM == "Windows" then
-  config.plugins.spellcheck.dictionary_file = EXEDIR .. "/words.txt"
-else
-  config.plugins.spellcheck.dictionary_file = "/usr/share/dict/words"
-end
-
+config.plugins.spellcheck = common.merge({
+  files = { "%.txt$", "%.md$", "%.markdown$" },
+  dictionary_file = (PLATFORM == "Windows" and EXEDIR .. "/words.txt" or "/usr/share/dict/words")
+}, config.plugins.spellcheck)
 
 local last_input_time = 0
 local word_pattern = "%a+"

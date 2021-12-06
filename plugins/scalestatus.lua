@@ -1,4 +1,4 @@
--- mod-version:2 -- lite-xl 2.0
+-- mod-version:3 --lite-xl 2.1
 --[[
     scalestatus.lua
     displays current scale (zoom) in status view
@@ -6,11 +6,11 @@
     originally by SwissalpS
 --]]
 local scale = require "plugins.scale"
-
+local common = require "core.common"
 local config = require "core.config"
 local StatusView = require "core.statusview"
 
-config.plugins.scalestatus = { format = '%.0f%%' }
+config.plugins.scalestatus = common.merge({ format = '%.0f%%' }, config.plugins.scalestatus)
 
 local get_items = StatusView.get_items
 function StatusView:get_items()

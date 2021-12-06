@@ -1,10 +1,10 @@
--- mod-version:2 -- lite-xl 2.0
+-- mod-version:3 --lite-xl 2.1
 require "plugins.reflow"
 local config = require "core.config"
 local command = require "core.command"
 local DocView = require "core.docview"
 
-config.plugins.autowrap = { files = { "%.md$", "%.txt$" } }
+config.plugins.autowrap = common.merge({ files = { "%.md$", "%.txt$" } }, config.plugins.autowrap)
 
 
 local on_text_input = DocView.on_text_input

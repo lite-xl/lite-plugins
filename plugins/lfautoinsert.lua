@@ -1,11 +1,11 @@
--- mod-version:2 -- lite-xl 2.0
+-- mod-version:3 --lite-xl 2.1
 local core = require "core"
 local command = require "core.command"
 local common = require "core.common"
 local config = require "core.config"
 local keymap = require "core.keymap"
 
-config.plugins.lfautoinsert = { map = {
+config.plugins.lfautoinsert = common.merge({ map = {
   ["{%s*\n"] = "}",
   ["%(%s*\n"] = ")",
   ["%f[[]%[%s*\n"] = "]",
@@ -37,7 +37,7 @@ config.plugins.lfautoinsert = { map = {
       ["%[%[%s*\n"] = "]]"
     }
   },
-} }
+} }, config.plugins.lfautoinsert)
 
 local function get_autoinsert_map(filename)
   local map = {}
