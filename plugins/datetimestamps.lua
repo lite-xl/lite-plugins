@@ -25,10 +25,12 @@ from https://www.lua.org/pil/22.1.html
 %y	two-digit year (98) [00-99]
 %%	the character `%´
 --]]
+
 config.plugins.datetimestamps = {
-  format_datestamp = "%Y%m%d"
-  format_datetimestamp = "%Y%m%d_%H%M%S"
-  format_timestamp = "%H%M%S"
+  format_datestamp = "%Y%m%d",
+  format_datetimestamp = "%Y%m%d_%H%M%S",
+  format_timestamp = "%H%M%S",
+  format_isodatetime = "%Y-%m-%d %X"
 }
 
 local function datestamp()
@@ -46,9 +48,17 @@ local function timestamp()
   core.active_view.doc:text_input(sOut)
 end
 
+local function ISO8601Datetime()
+  local tz = os.date('%z')
+  local signum, hours, mins = tz:match '([+-])(%d%d)(%d%d)'
+  local sOut = os.date(config.plugins.datetimestamps.format_isodatetime)..signum..hours..":"..mins
+  core.active_view.doc:text_input(sOut)
+end
+
 command.add("core.docview", {
   ["datetimestamps:insert-datestamp"] = datestamp,
   ["datetimestamps:insert-timestamp"] = timestamp,
-  ["datetimestamps:insert-datetimestamp"] = datetimestamp
+  ["datetimestamps:insert-datetimestamp"] = datetimestamp,
+  ["datetimestamps:insert-ISO8601Datetime"] = ISO8601Datetime
 })
 
